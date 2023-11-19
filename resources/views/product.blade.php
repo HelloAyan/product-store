@@ -36,7 +36,7 @@
     .table_section {
         width: 80%;
         height: auto;
-        padding-top: 100px;
+        padding-top: 50px;
         margin: auto;
     }
 
@@ -63,6 +63,28 @@
     th {
         background-color: #f2f2f2;
     }
+
+    .button {
+        width: auto;
+        height: auto;
+    }
+
+    .button button {
+        width: auto;
+        height: auto;
+        border: none;
+        margin-bottom: 30px;
+        padding: 10px;
+        background-color: #E6E4E4;
+        cursor: pointer;
+        font-size: 17px;
+        color: #008000;
+    }
+
+    .button button:hover {
+        background-color: #008000;
+        color: #E6E4E4;
+    }
     </style>
 </head>
 
@@ -73,6 +95,13 @@
     </div>
 
     <div class='table_section'>
+        <div class='button'>
+            <a href="{{route('product.create')}}">
+                <button> Add New Item</button>
+            </a>
+
+
+        </div>
         <table>
             <thead>
                 <tr>

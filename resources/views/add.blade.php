@@ -8,14 +8,37 @@
 
     <style>
     /* Styling for the form */
-    body {
-        font-family: Arial, sans-serif;
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .container {
+        width: 100%;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #e6e4e4;
+    }
+
+    .title {
+        font-size: 30px;
+        color: green;
+    }
+
+    .title a {
+        text-decoration: none;
+        color: inherit;
     }
 
     form {
         width: 50%;
         margin: 20px auto;
     }
+
+    .validateMsg {}
 
     label {
         display: block;
@@ -37,6 +60,7 @@
         cursor: pointer;
     }
 
+
     /* Error message styling */
     .error {
         color: red;
@@ -46,6 +70,9 @@
 </head>
 
 <body>
+    <div class='container'>
+        <div class="title"> <a href="{{route('product.index')}}">Product Store</a> </div>
+    </div>
     <div>
         @if($errors->any())
         <ul>
@@ -55,94 +82,40 @@
         </ul>
         @endif
     </div>
-    <form id="myForm" onsubmit="return validateForm()" method="post" action="{{ route('product.store') }}">
+    <form id="myForm" method="post" action="{{ route('product.store') }}">
 
         @csrf
         @method('post')
 
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
-        <span class="error" id="nameError"></span>
+        <div> <label for="name">Name:</label> </div>
+        <input type="text" id="name" name="name" placeholder="Your Name" required>
+
 
         <label for="qty">Qty:</label>
-        <input type="text" id="qty" name="qty" required>
-        <span class="error" id="qtyError"></span>
+        <input type="text" id="qty" name="qty" Placeholder="Quantity" required>
+
 
         <label for="price">Price:</label>
-        <input type="text" id="price" name="price" required>
-        <span class="error" id="priceError"></span>
+        <input type="text" id="price" name="price" Placeholder='Price' required>
 
-        <label for="brand">Brand:</label>
-        <input type="text" id="brand" name="brand" required>
-        <span class="error" id="brandError"></span>
+
+        <label for="brand">Brand:</label><span class="error" id="brandError"></span>
+        <input type="text" id="brand" name="brand" Placeholder='Brand' required>
+
 
         <label for="color">Color:</label>
-        <input type="text" id="color" name="color" required>
-        <span class="error" id="colorError"></span>
+        <input type="text" id="color" name="color" placeholder="Color" required>
+
 
         <label for="description">Description:</label>
-        <input type="text" id="description" name="description">
-        <span class="error" id="descriptionError"></span>
+        <input type="text" id="description" name="description" placeholder='Write Description' required>
 
         <input type="submit" value="Submit">
+
     </form>
 
 
-    <script>
-    function validateForm() {
-        let isValid = true;
 
-        const name = document.getElementById('name').value.trim();
-        if (name === '') {
-            document.getElementById('nameError').innerText = 'Please enter Name';
-            isValid = false;
-        } else {
-            document.getElementById('nameError').innerText = '';
-        }
-
-        const qty = document.getElementById('qty').value.trim();
-        if (qty === '') {
-            document.getElementById('qtyError').innerText = 'Please enter Qty';
-            isValid = false;
-        } else {
-            document.getElementById('qtyError').innerText = '';
-        }
-
-        const price = document.getElementById('price').value.trim();
-        if (price === '') {
-            document.getElementById('priceError').innerText = 'Please enter Price';
-            isValid = false;
-        } else {
-            document.getElementById('priceError').innerText = '';
-        }
-
-        const brand = document.getElementById('brand').value.trim();
-        if (brand === '') {
-            document.getElementById('brandError').innerText = 'Please enter Brand';
-            isValid = false;
-        } else {
-            document.getElementById('brandError').innerText = '';
-        }
-
-        const color = document.getElementById('color').value.trim();
-        if (color === '') {
-            document.getElementById('colorError').innerText = 'Please enter Color';
-            isValid = false;
-        } else {
-            document.getElementById('colorError').innerText = '';
-        }
-
-        // const description = document.getElementById('description').value.trim();
-        // if (description === '') {
-        //     document.getElementById('descriptionError').innerText = 'Please enter description';
-        //     isValid = false;
-        // } else {
-        //     document.getElementById('descriptionError').innerText = '';
-        // }
-
-        return isValid;
-    }
-    </script>
 </body>
 
 </html>
