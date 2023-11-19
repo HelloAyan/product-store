@@ -46,21 +46,21 @@
 </head>
 
 <body>
-    <form id="myForm" onsubmit="return validateForm()">
-        <label for="id">ID:</label>
-        <input type="number" id="id" name="id" required>
-        <span class="error" id="idError"></span>
+    <form id="myForm" onsubmit="return validateForm()" method="post" action="{{ route('product.store') }}">
+
+        @csrf
+        @method('post')
 
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" required>
         <span class="error" id="nameError"></span>
 
         <label for="qty">Qty:</label>
-        <input type="number" id="qty" name="qty" required>
+        <input type="text" id="qty" name="qty" required>
         <span class="error" id="qtyError"></span>
 
         <label for="price">Price:</label>
-        <input type="number" id="price" name="price" required>
+        <input type="text" id="price" name="price" required>
         <span class="error" id="priceError"></span>
 
         <label for="brand">Brand:</label>
@@ -82,14 +82,6 @@
     <script>
     function validateForm() {
         let isValid = true;
-
-        const id = document.getElementById('id').value.trim();
-        if (id === '') {
-            document.getElementById('idError').innerText = 'Please enter ID';
-            isValid = false;
-        } else {
-            document.getElementById('idError').innerText = '';
-        }
 
         const name = document.getElementById('name').value.trim();
         if (name === '') {
