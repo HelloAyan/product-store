@@ -46,6 +46,15 @@
 </head>
 
 <body>
+    <div>
+        @if($errors->any())
+        <ul>
+            @foreach($errors->all() as $error)
+            <li>{{$error}}</li>
+            @endforeach
+        </ul>
+        @endif
+    </div>
     <form id="myForm" onsubmit="return validateForm()" method="post" action="{{ route('product.store') }}">
 
         @csrf
@@ -71,9 +80,9 @@
         <input type="text" id="color" name="color" required>
         <span class="error" id="colorError"></span>
 
-        <label for="details">Details:</label>
-        <input type="text" id="details" name="details" required>
-        <span class="error" id="detailsError"></span>
+        <label for="description">description:</label>
+        <input type="text" id="description" name="description">
+        <span class="error" id="descriptionError"></span>
 
         <input type="submit" value="Submit">
     </form>
@@ -123,13 +132,13 @@
             document.getElementById('colorError').innerText = '';
         }
 
-        const details = document.getElementById('details').value.trim();
-        if (details === '') {
-            document.getElementById('detailsError').innerText = 'Please enter Details';
-            isValid = false;
-        } else {
-            document.getElementById('detailsError').innerText = '';
-        }
+        // const description = document.getElementById('description').value.trim();
+        // if (description === '') {
+        //     document.getElementById('descriptionError').innerText = 'Please enter description';
+        //     isValid = false;
+        // } else {
+        //     document.getElementById('descriptionError').innerText = '';
+        // }
 
         return isValid;
     }
