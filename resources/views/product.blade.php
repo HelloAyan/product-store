@@ -85,27 +85,21 @@
                     <th>Details</th>
                 </tr>
             </thead>
+
+            @foreach($viewProduct as $items)
             <tbody>
                 <tr>
-                    <td>1</td>
-                    <td>Product A</td>
-                    <td>5</td>
-                    <td>$10</td>
-                    <td>Brand X</td>
-                    <td>Red</td>
-                    <td>Some details</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Product B</td>
-                    <td>10</td>
-                    <td>$20</td>
-                    <td>Brand Y</td>
-                    <td>Blue</td>
-                    <td>More details</td>
-                </tr>
+                    <td>{{$items->id }}</td>
+                    <td>{{$items->name}}</td>
+                    <td>{{$items->qty}}</td>
+                    <td>{{$items->price}}</td>
+                    <td>{{$items->brand}}</td>
+                    <td>{{$items->color}}</td>
+                    <td>{{$items->description}}</td>
 
+                </tr>
             </tbody>
+            @endforeach
         </table>
 
     </div>

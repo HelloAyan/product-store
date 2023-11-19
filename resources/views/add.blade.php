@@ -80,7 +80,7 @@
         <input type="text" id="color" name="color" required>
         <span class="error" id="colorError"></span>
 
-        <label for="description">description:</label>
+        <label for="description">Description:</label>
         <input type="text" id="description" name="description">
         <span class="error" id="descriptionError"></span>
 
