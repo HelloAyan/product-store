@@ -38,6 +38,7 @@
         margin: 20px auto;
     }
 
+
     label {
         display: block;
         margin-bottom: 5px;
@@ -80,40 +81,38 @@
         </ul>
         @endif
     </div>
-    <form id="myForm" method="post" action="{{ route('product.store') }}">
+    <form id="myForm" method="post" action="{{route('product.update', ['product' => $singleItem->id])}}">
 
         @csrf
-        @method('post')
+        @method('put')
 
         <div> <label for="name">Name:</label> </div>
-        <input type="text" id="name" name="name" placeholder="Your Name" required>
+        <input type="text" id="name" name="name" placeholder="Your Name" value="{{$singleItem->name}}">
 
 
         <label for="qty">Qty:</label>
-        <input type="text" id="qty" name="qty" Placeholder="Quantity" required>
+        <input type="text" id="qty" name="qty" Placeholder="Quantity" value="{{$singleItem->qty}}">
 
 
         <label for="price">Price:</label>
-        <input type="text" id="price" name="price" Placeholder='Price' required>
+        <input type="text" id="price" name="price" Placeholder='Price' value="{{$singleItem->price}}">
 
 
         <label for="brand">Brand:</label><span class="error" id="brandError"></span>
-        <input type="text" id="brand" name="brand" Placeholder='Brand' required>
+        <input type="text" id="brand" name="brand" Placeholder='Brand' value="{{$singleItem->brand}}">
 
 
         <label for="color">Color:</label>
-        <input type="text" id="color" name="color" placeholder="Color" required>
+        <input type="text" id="color" name="color" placeholder="Color" value="{{$singleItem->color}}">
 
 
         <label for="description">Description:</label>
-        <input type="text" id="description" name="description" placeholder='Write Description' required>
+        <input type="text" id="description" name="description" placeholder='Write Description'
+            value="{{$singleItem->description}}">
 
-        <input type="submit" value="Submit">
+        <input type="submit" value="Update Item">
 
     </form>
-
-
-
 </body>
 
 </html>

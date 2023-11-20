@@ -20,3 +20,5 @@ Route::get('/test', function () {
 Route::get('/', [ProductController::class, 'index'])->name('product.index');
 Route::get('/create', [ProductController::class, 'create'])->name('product.create');
 Route::post('/', [ProductController::class, 'store'])->name('product.store');
+Route::get('/{product}/edit', [ProductController::class, 'edit'])->name('product.edit');
+Route::put('/{product}/update', [ProductController::class, 'update'])->name('product.update');

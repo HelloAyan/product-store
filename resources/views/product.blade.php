@@ -112,6 +112,8 @@
                     <th>Brand</th>
                     <th>Color</th>
                     <th>Details</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
                 </tr>
             </thead>
 
@@ -125,6 +127,10 @@
                     <td>{{$items->brand}}</td>
                     <td>{{$items->color}}</td>
                     <td>{{$items->description}}</td>
+                    <td>
+                        <a href="{{route('product.edit', ['product' => $items])}}">Edit</a>
+                    </td>
+                    <td>Delete</td>
 
                 </tr>
             </tbody>

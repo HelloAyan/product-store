@@ -29,4 +29,21 @@ class ProductController extends Controller
         $newProduct = Product::create($store_data);
         return redirect(route('product.index'))->with('success', 'Product Added Successfully');
     }
+
+    public function edit(Product $product){
+        return view('edit', ['singleItem' => $product]);
+    }
+
+    public function update(Product $product, Request $request){
+        $store_data = $request-> validate([
+            'name' => 'required',
+            'qty' => 'required',
+            'price' => 'required | decimal:0,10',
+            'brand' => 'required',
+            'color' => 'required',
+            'description' => 'required',
+        ]);
+        $product->update($store_data);
+        return redirect(route('product.index'))->with('success', 'Product Updated Successfully');
+    }
 }
