@@ -89,7 +89,7 @@
         <input type="text" id="name" name="name" placeholder="Your Name" required>
 
 
-        <label for="qty">Qty:</label>
+        <label for="qty">Quantity:</label>
         <input type="text" id="qty" name="qty" Placeholder="Quantity" required>
 
 
