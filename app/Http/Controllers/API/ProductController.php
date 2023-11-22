@@ -81,4 +81,58 @@ class ProductController extends Controller
         }
     }
 
+    public function edit($id){
+        $item = Product::find($id);
+        if($item){
+            return response()->json([
+                'status' => 200,
+                'message' => $item,
+            ]);
+        }else{
+            return response()->json([
+                'status' => 404,
+                'message' => 'No Such Item Found'
+            ]);
+        }
+    }
+    
+    public function update(Request $request, int $id){
+        $validator = Validator::make($request -> all(), [
+            'name' => 'required|string',
+            'qty' => 'required|integer',
+            'price' => 'required|integer',
+            'brand' => 'required|string',
+            'color' => 'required|string',
+            'description' => 'required|string'
+        ]);
+
+        if($validator -> fails()){
+            return response()->json([
+                'status' => 422,
+                'error' => $validator->errors()
+            ], 422);
+        }else{
+            $product = Product::find($id);
+            if($product){
+                $product -> update([
+                    'name' => $request->name,
+                    'qty' => $request->qty,
+                    'price' => $request->price,
+                    'brand' => $request->brand,
+                    'color' => $request->color,
+                    'description' => $request->description,
+                ]);
+                return response()->json([
+                    'status' => 200,
+                    'message' => 'Item Updated Successfully',
+                ], 200);
+            }else{
+                return response()->json([
+                    'status' => 500,
+                    'message' => 'Such Item Not Found',
+                ], 500);
+            }
+        }
+    }
+
 }
