@@ -10,12 +10,15 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 // REST API list-
 
-// To View all product API 'http://localhost:8000/api/product'  Method: GET 
-// To Add New Item API 'http://localhost:8000/api/product'      Method: POST
-// To Add New Item API 'http://localhost:8000/api/product/{id}'  Method: GET
+// To View all product. API 'http://localhost:8000/api/product'  Method: GET 
+// To Add New Item. API 'http://localhost:8000/api/product'      Method: POST
+// To Add New Item. API 'http://localhost:8000/api/product/{id}'  Method: GET
+// To Update single . API 'http://localhost:8000/api/product/{id}/update'  Method: PUT
+// To Delete single . API 'http://localhost:8000/api/product/{id}/delete'  Method: DELETE
 
 Route::get('product', [ProductController::class, 'index']);
 Route::post('product', [ProductController::class, 'store']);
 Route::get('product/{id}', [ProductController::class, 'singleItem']);
 Route::get('product/{id}/edit', [ProductController::class, 'edit']);
 Route::put('product/{id}/update', [ProductController::class, 'update']);
+Route::delete('product/{id}/delete', [ProductController::class, 'delete']);

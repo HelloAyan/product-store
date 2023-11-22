@@ -152,7 +152,7 @@
         <table>
             <thead>
                 <tr>
-                    <th>ID</th>
+                    <th>SL</th>
                     <th>Name</th>
                     <th>Qty</th>
                     <th>Price</th>
