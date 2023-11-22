@@ -66,4 +66,19 @@ class ProductController extends Controller
         }
     }
 
+    public function singleItem($id){
+        $item = Product::find($id);
+        if($item){
+            return response()->json([
+                'status' => 200,
+                'message' => $item,
+            ]);
+        }else{
+            return response()->json([
+                'status' => 404,
+                'message' => 'No Such Item Found'
+            ]);
+        }
+    }
+
 }
