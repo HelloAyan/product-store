@@ -15,5 +15,6 @@ class Product extends Model
         'brand',
         'color',
         'description',
+        'image'
     ];
 }

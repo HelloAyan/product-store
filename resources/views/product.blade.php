@@ -19,8 +19,9 @@
         height: 40px;
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: space-between;
         background-color: #e6e4e4;
+        padding: 0 135px;
     }
 
     .title {
@@ -132,13 +133,22 @@
         background-color: #cc0606;
         color: #E6E4E4;
     }
+
+    .image-size {
+        width: 50px;
+        height: auto;
+    }
     </style>
 </head>
 
 
 <body>
     <div class='container'>
+        <div class="title">
+            <a href="{{route('product.home')}}"><img src="{{asset('images/home.svg')}}" alt=""> Home</a>
+        </div>
         <div class="title"> <a href="">Product Store</a> </div>
+        <div></div>
     </div>
 
     <div class='table_section'>
@@ -154,6 +164,7 @@
                 <tr>
                     <th>SL</th>
                     <th>Name</th>
+                    <th>Image</th>
                     <th>Qty</th>
                     <th>Price</th>
                     <th>Brand</th>
@@ -173,6 +184,13 @@
                 <tr>
                     <td>{{$counter}}</td>
                     <td>{{$items->name}}</td>
+                    <td>
+                        @if($items->image)
+                        <img src="{{ asset('storage/images/' . $items->image) }}" alt="Image" class="image-size">
+                        @else
+                        No Image
+                        @endif
+                    </td>
                     <td>{{$items->qty}}</td>
                     <td>{{$items->price}}</td>
                     <td>{{$items->brand}}</td>
