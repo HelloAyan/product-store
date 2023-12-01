@@ -147,7 +147,7 @@
         <div class="title">
             <a href="{{route('product.home')}}"><img src="{{asset('images/home.svg')}}" alt=""> Home</a>
         </div>
-        <div class="title"> <a href="">Product Store</a> </div>
+        <div class="title"> <a href="{{route('product.home')}}">Product Store</a> </div>
         <div></div>
     </div>
 

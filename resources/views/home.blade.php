@@ -50,6 +50,9 @@
     .item_section {
         width: auto;
         height: auto;
+        display: flex;
+        flex-direction: column;
+        row-gap: 5px;
         border: 1px solid #80808036;
         padding: 20px 25px;
         border-radius: 5px;
@@ -63,6 +66,11 @@
     .item_title {
         font-size: 20px;
         color: green;
+    }
+
+    .details_info {
+        font-size: 18px;
+        color: #2d2c2c;
     }
 
     .add_to_chart {
@@ -128,9 +136,9 @@
                     <img src="{{ asset('storage/images/phone.jpeg') }}" alt="Image" class="image-size">
                     @endif
                 </div>
-                <div>Price: <span class="price">{{$items->price}}</span></div>
-                <div>Brand: {{$items->brand}}</div>
-                <div>Description: {{$items->description}}</div>
+                <div class="details_info">Price: <span class="price">{{$items->price}}</span></div>
+                <div class="details_info">Brand: {{$items->brand}}</div>
+                <div class="details_info">Description: {{$items->description}}</div>
                 <div class="add_to_chart" data-name="{{$items->name}}" data-price="{{$items->price}}">Add to Chart</div>
             </div>
 
